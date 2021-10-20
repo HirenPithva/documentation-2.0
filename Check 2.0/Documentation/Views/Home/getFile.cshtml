@@ -1,0 +1,145 @@
+﻿@model check.Models.fileModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>getFile</title>
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">*@
+
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="w-get-container">
+
+        @using (Html.BeginForm("getFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="file-input-field">
+                <div class="w-file-form">
+                    <div class="dropBox">
+                        <img src="~/Imgs/Add.png" />
+                        <p>Drop Files Here</p>
+                    </div>
+
+                    <div class="Add-button">
+                        <input type="file" id="Mfile" name="Mfile" multiple />
+                        <button type="button"><label for="Mfile">ADD FILE</label></button>
+                    </div>
+                </div>
+                <div class="w-get-button">
+                    <div class="w-filesName">
+                        @{
+                            if (Model != null && Model.FilePaths != null)
+                            {
+                                foreach (string fileName in Model.FilePaths)
+                                {
+                                    <p>@fileName</p>
+                                }
+                            }
+
+                        }
+                    </div>
+                    <div class="w-upload-btn">
+
+
+                        @Html.ActionLink("UPLOAD", "FileProcess", "Home")
+
+                        @*<button @Url.Action("FileProcess", "Home") type="button">UPLOAD</button>*@
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script>
+        $(".deletFile").click(function () {
+            alert(this.closest('p').innerHTML);
+        });
+        $(function () {
+            $("#Mfile").hide();
+        });
+        $(".dropBox").on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        })
+        $(".dropBox").on('drop', function (e) {
+            var files = e.originalEvent.dataTransfer.files;
+            $("#Mfile").prop('files', files);
+            var filesCount = $("#Mfile").prop('files');
+            if (filesCount.length != null && filesCount.length != undefined && filesCount.length != "" && filesCount.length >0) {
+
+                $('form').submit();
+            }
+        });
+        $("#Mfile").on('change', function () {
+            var filesCount = this.files.length;
+            if (filesCount > 0) {
+
+                $('form').submit();
+            }
+            else {
+                $('form').submit(function (event) {
+                    event.preventDefault();
+                });
+            }
+        });
+        //$(document).ready(function () {
+
+            //$("[id^=Mfile]").on('change', function () {
+            //    var filesCount = this.files.length;
+            //    var Allfiles = this.files;
+            //    var i = 0;
+
+            //    alert($(this).attr('id'));
+            //    for (i; i < filesCount; i++) {
+            //        var filename = Allfiles[i].name;
+            //        $(this).siblings('div').append('<p>' + filename + '</p>');
+            //    }
+
+            //    if (i > 0) {
+            //        var fileID = $(this).attr('id');
+            //        var nameCount = parseInt(fileID.replace("Mfile", ''));
+            //        nameCount++;
+            //        var NameOfInput = "Mfile" + nameCount;
+            //        alert(NameOfInput);
+            //        var inputField = "<input type=" + "file" + " id=" + NameOfInput + " name=" + NameOfInput  + " multiple/>"
+            //        var DivOfFileName = "<div class=" + "w-filesName" + "></div>"
+            //        var AddFileBtn = "<label for=" + NameOfInput + "><button type=" + "button" + " > ADD FILE</button></label >"
+            //        $(this).parents().find("div.w-file-form").append(
+            //            "<div class=" + "w-file-field" + ">" + inputField + DivOfFileName + AddFileBtn + "</div>"
+            //        );
+            //    }
+
+            //});
+
+        //});
+
+
+            //function addOneMoreFieldandAppendFielName(e) {
+            //    var i = 0;  onchange="addOneMoreFieldandAppendFielName(this)"
+            //    var Allfiles = e.files;
+            //    for (i; i < Allfiles.length; i++) {
+            //        var filename = Allfiles[i].name;
+            //        e.nextElementSibling.append('<p>' + filename + '</p>');
+            //    }
+
+            //    if (i > 0) {
+            //        var fileID = e.getAttribute('id');
+            //        var NameOfInput = "Mfile" + parseInt(fileID.replace("Mfile", '')) + 1;
+            //        var inputField = "<input type=" + "file" + " id=" + NameOfInput + " name=" + NameOfInput + " onchange=" + "addOneMoreFieldandAppendFielName()" + " multiple/>"
+            //        var DivOfFileName = "<div class=" + "w-filesName" + "></div>"
+            //        var AddFileBtn = "<label for=" + NameOfInput + "><button type=" + "button" + " > ADD FILE</button></label >"
+            //        $(this).parents().find("div.w-file-form").append(
+            //            "<div class=" + "w-file-field" + ">" + inputField + DivOfFileName + AddFileBtn + "</div>"
+            //        );
+            //    }
+            //}
+    </script>
+</body>
+</html>

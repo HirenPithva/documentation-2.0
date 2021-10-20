@@ -1,0 +1,205 @@
+﻿html, body {
+    width: 100%;
+    height: 100%;
+}
+.container {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.w-form {
+    border: 2px solid black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+    .w-form form {
+        height: 280px;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        padding:35px 25px;
+
+    }
+.w-input-field label{
+    display:block;
+    min-width: 170px;
+    font-family:Arial;
+    font-size:20px;
+}
+.w-input-field select, .w-input-field input{
+    width:250px;
+    height:30px;
+    font-size:18px;
+}
+.w-input-field {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items:center;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+}
+
+.Submit-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    margin-top:25px;
+}
+    .Submit-btn button {
+        width: 87%;
+        height: 35px;
+        color: #ffffff;
+        background-color: #6DAFFE;
+        border: 1.7px solid #437Fc7;
+        border-radius: 3px;
+        font-size:18px;
+    }
+.w-logo{
+    margin-left:45px;
+}
+
+.w-get-container {
+    width: 100%;
+    min-height: 100%;
+    
+}
+    .w-get-container form {
+        position: absolute;
+        width: 800px;
+        height: 500px;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-400px,-250px);
+        padding : 10px;
+    }
+
+    .w-get-container .file-input-field {
+        width: 100%;
+        height:100%;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-around;
+    }
+.w-file-form{
+   width:46%;
+   padding:10px 5px;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-around;
+}
+.w-get-button {
+    width: 46%;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.dropBox {
+    width: 100%;
+    height: 75%;
+    border: 2px solid black;
+    border: 3px dashed #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+}
+    .dropBox:hover {
+        border: 3px dashed #437FC7 !important;
+    }
+    .dropBox img {
+        height: 80px;
+        width: 80px;
+    }
+    .dropBox p {
+        font-family: Arial;
+        font-size: 17px;
+        font-weight: 700px;
+    }
+    .Add-button {
+        height: 15%;
+        width: 100%;
+    }
+        .Add-button button {
+            width: 100%;
+            height: 100%;
+            width: 100%;
+            height: 100%;
+            margin-left: 4px;
+            border-radius: 5px;
+            background-color: #6DAFFE;
+            /* background-color: #0c0;*/
+            border: none;
+            font-size: 20px;
+            font-family: Arial;
+            font-weight: 600px;
+            color: #808080;
+            border-color: #437FC7;
+        }
+    .Add-button button label {
+        width: 100%;
+        height: 100%;
+        margin-left: 4px;
+        border-radius: 5px;
+/*        background-color: ;
+*/        /* background-color: #0c0;*/
+        border: none;
+        font-size: 20px;
+        font-family: Arial;
+        font-weight: 600px;
+        color: #ffffff;
+    }
+.w-filesName {
+    background-color: #EDF6FF;
+    width: 100%;
+    height: 75%;
+    box-shadow: 0 0 2px #888888;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+}
+    .w-filesName::-webkit-scrollbar{
+        display:none;
+    }
+    .w-upload-btn {
+        height: 15%;
+        width: 100%;
+    }
+        .w-upload-btn a {
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            margin-left: 4px;
+            border-radius: 5px;
+            border-color:#437FC7;
+            background-color: #6DAFFE;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-family: Arial;
+            font-weight: 600px;
+        }
+.w-filesName p {
+/*    color: #437FC7;
+*/    margin: 0;
+    padding: 10px 8px 0 14px;
+    font-size: 18px;
+    font-family: Arial;
+    font-weight: 400px;
+}
+.w-filesName p:nth-child(1){
+    margin-top:10px;
+}

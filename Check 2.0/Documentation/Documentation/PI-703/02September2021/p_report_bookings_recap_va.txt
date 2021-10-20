@@ -1,0 +1,18 @@
+Line: 6 (Revision)
+Code: 
+--RMP 09/02/21 PI-703, Modified the query to get the vcc code value, Modified the join to get the vcc code value. Also commented the join charges_newport as it's no longer needed
+______________________________________________________________________________________________________________
+Line: 69-72 (Modify)
+Code: 
+									--MStart RMP 09/02/21 PI-703, Modified the query to get the vcc code value
+									--,cnp.vcc_cd AS vcc_code
+									,ISNULL(vc.vcc_code,'''') as vcc_code
+									--MEnd RMP 09/02/21 PI-703
+______________________________________________________________________________________________________________
+Line: 79-82 (Modify)
+Code: 
+							--MStart RMP 09/02/21 PI-703, Modified the join to get the vcc code value. Also commented the join charges_newport as it''s no longer needed
+							LEFT join vcc_codes vc ON ISNUMERIC(cln.vcc_code) = 1 AND vc.id = cln.vcc_code
+							--LEFT JOIN charges_newport cnp ON cnp.id_charges = ch.id
+							--MEnd RMP 09/02/21 PI-703
+______________________________________________________________________________________________________________

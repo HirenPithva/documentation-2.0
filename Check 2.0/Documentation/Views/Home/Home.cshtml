@@ -1,0 +1,67 @@
+﻿@model check.Models.fileModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Check</title>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="w-form">
+            <div class="w-logo">
+                @*<img src="~/Imgs/logo.png" />*@
+                @*<img src="~/Imgs/img-2.jpg" />*@
+                <img src="~/Imgs/img-2.jpg" />
+            </div>
+            @using (Html.BeginForm("getFile", "Home", FormMethod.Get, new { enctype = "multipart/form-data" }))
+            {
+                <div class="w-input-field">
+                    @Html.LabelFor(m => m.Bilabel)
+                    @Html.DropDownListFor(m => m.Bilabel, Model.bilabels, "--Select--", new { id = "Bilabel", @class = "Input-Field" })
+                </div>
+                <div class="w-input-field">
+                    @Html.LabelFor(m => m.StartTicketDate)
+                    @Html.TextBoxFor(m => m.StartTicketDate, "{0:dd/MM/yyyy}", new { type = "Date", id = "Sdate", @class = "Input-Field" })
+
+                    @*@Html.EditorFor(m => m.StartTicketDate, new { htmlAttributes = new { type = "Date", id = "Sdate", @class = "Input-Field" } })*@
+                </div>
+                <div class="w-input-field">
+                    @Html.LabelFor(m => m.EndTicketDate)
+                    @Html.TextBoxFor(m => m.EndTicketDate, "{0:dd/MM/yyyy}", new { type = "Date", id = "Edate", @class = "Input-Field" })
+
+                    @*@Html.EditorFor(m => m.EndTicketDate, new { htmlAttributes = new { type = "Date", id = "Edate", @class = "Input-Field" } })*@
+                </div>
+                <div class="w-input-field">
+                    @Html.LabelFor(m => m.Ticket)
+                    @Html.TextBoxFor(m => m.Ticket, new { id = "Ticket", @class = "Input-Field" })
+                </div>
+                <div class="Submit-btn">
+                    <button type="submit">SUBMIT</button>
+                </div>
+            }
+
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#Sdate").val(new Date().toISOString().slice(0, 10));
+            $("#Edate").val(new Date().toISOString().slice(0, 10));
+            $("#Sdate").change(function () {
+                var endDate = $("#Edate").val();
+                if (endDate == undefined || endDate == null || endDate=="") {
+                    $("#Edate").val($("#Sdate").val());
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

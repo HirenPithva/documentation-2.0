@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FileProcess</title>
+</head>
+<body>
+    <div>
+        <div class="container">
+            <div class="w-error">
+
+                <p>@ViewBag.ErrorMessage</p>
+
+            </div>
+            <div class="w-download-btn">
+                @Html.ActionLink("DOWNLOAD", "Download", "Home")
+            </div>
+        </div>
+    </div>
+</body>
+</html>
